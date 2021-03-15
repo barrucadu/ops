@@ -1,0 +1,59 @@
+resources:
+  - name: ops-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+  - name: feed-resource-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+      paths:
+        - concourse/feed-resource/
+  - name: feed-resource-image
+    type: docker-image
+    source:
+      repository: registry.barrucadu.dev/feed-resource
+      username: registry
+      password: ((docker-registry-password))
+  - name: rsync-resource-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+      paths:
+        - concourse/rsync-resource/
+  - name: rsync-resource-image
+    type: docker-image
+    source:
+      repository: registry.barrucadu.dev/rsync-resource
+      username: registry
+      password: ((docker-registry-password))
+
+jobs:
+  - name: update-pipeline
+    plan:
+      - get: ops-git
+        trigger: true
+      - set_pipeline: concourse
+        file: ops-git/concourse/pipelines/concourse.yml
+
+  - name: build-feed-resource-image
+    serial: true
+    plan:
+      - get: feed-resource-git
+        trigger: true
+      - put: feed-resource-image
+        params:
+          build: feed-resource-git/concourse/feed-resource/
+          dockerfile: feed-resource-git/concourse/feed-resource/Dockerfile
+          tag_as_latest: true
+
+  - name: build-rsync-resource-image
+    serial: true
+    plan:
+      - get: rsync-resource-git
+        trigger: true
+      - put: rsync-resource-image
+        params:
+          build: rsync-resource-git/concourse/rsync-resource/
+          dockerfile: rsync-resource-git/concourse/rsync-resource/Dockerfile
+          tag_as_latest: true
