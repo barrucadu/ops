@@ -1,0 +1,79 @@
+x-deploy-task: &deploy-task
+  platform: linux
+  image_resource:
+    type: docker-image
+    source:
+      repository: alpine
+  run:
+    path: sh
+    args:
+      - -ce
+      - |
+        echo "$SSH_PRIVATE_KEY" > ssh-private-key
+        chmod 600 ssh-private-key
+        set -x
+        apk add --no-cache openssh
+        ssh -i ssh-private-key -o "StrictHostKeyChecking no" "concourse-deploy-robot@${HOST}" sudo systemctl restart pleroma
+
+resources:
+  - name: ops-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+  - name: pleroma-git
+    type: git
+    source:
+      uri: https://git.pleroma.social/pleroma/pleroma.git
+  - name: pleroma-image
+    type: docker-image
+    source:
+      repository: registry.barrucadu.dev/pleroma
+      username: registry
+      password: ((docker-registry-password))
+
+jobs:
+  - name: update-pipeline
+    plan:
+      - get: ops-git
+        trigger: true
+      - set_pipeline: pleroma
+        file: ops-git/concourse/pipelines/pleroma.yml
+
+  - name: build-image
+    serial: true
+    plan:
+      - get: pleroma-git
+        trigger: true
+      - put: pleroma-image
+        params:
+          build: pleroma-git
+          dockerfile: pleroma-git/Dockerfile
+          tag_as_latest: true
+
+  - name: deploy-dunwich.barrucadu.co.uk
+    serial: true
+    plan:
+      - get: pleroma-image
+        trigger: true
+        passed:
+          - build-image
+      - task: deploy
+        params:
+          HOST: dunwich.barrucadu.co.uk
+          SSH_PRIVATE_KEY: ((dunwich-ssh-private-key))
+        config:
+          <<: *deploy-task
+
+  - name: deploy-social.lainon.life
+    serial: true
+    plan:
+      - get: pleroma-image
+        trigger: true
+        passed:
+          - build-image
+      - task: deploy
+        params:
+          HOST: social.lainon.life
+          SSH_PRIVATE_KEY: ((lainonlife-ssh-private-key))
+        config:
+          <<: *deploy-task
