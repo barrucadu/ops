@@ -1,0 +1,32 @@
+---
+"":
+- type: "A"
+  values:
+  - "94.130.74.147"
+- type: "AAAA"
+  values:
+  - "2a01:4f8:c0c:77b3::"
+- type: "MX"
+  values:
+  - exchange: "."
+    preference: 0
+- type: "TXT"
+  values:
+  - "v=spf1 -all"
+
+"*":
+- type: "A"
+  values:
+  - "94.130.74.147"
+- type: "AAAA"
+  values:
+  - "2a01:4f8:c0c:77b3::"
+
+"*._domainkey":
+  type: "TXT"
+  value: "v=DKIM1\\; p="
+
+"_dmarc":
+  type: "TXT"
+  values:
+  - "v=DMARC1\\; p=reject\\; sp=reject\\; adkim=s\\; aspf=s\\; fo=1\\; rua=mailto:mike+dmarc@barrucadu.co.uk"

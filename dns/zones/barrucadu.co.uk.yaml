@@ -1,0 +1,51 @@
+---
+"":
+- type: "A"
+  values:
+  - "116.203.134.200"
+- type: "AAAA"
+  values:
+  - "2a01:4f8:c2c:2b22::"
+- type: "MX"
+  values:
+  - exchange: "mail.protonmail.ch."
+    preference: 10
+  - exchange: "mailsec.protonmail.ch."
+    preference: 20
+- type: "TXT"
+  values:
+  - "protonmail-verification=68e94ed315f5df9a3060beb99c6c8ca059e0c741"
+  - "v=spf1 include:_spf.protonmail.ch mx ~all"
+
+"*":
+- type: "A"
+  values:
+  - "116.203.134.200"
+- type: "AAAA"
+  values:
+  - "2a01:4f8:c2c:2b22::"
+
+"_dmarc":
+  type: "TXT"
+  values:
+  - "v=DMARC1\\; p=none\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
+
+"dreamlands":
+  type: "CNAME"
+  value: "barrucadu.dev."
+
+"dunwich":
+  type: "CNAME"
+  value: "barrucadu.co.uk."
+
+"protonmail2._domainkey":
+  type: "CNAME"
+  value: "protonmail2.domainkey.dpk2ikzsdalpp7gz5u7nsmcwt5wtskf627vh7o2tr5qictip25yoq.domains.proton.ch."
+
+"protonmail3._domainkey":
+  type: "CNAME"
+  value: "protonmail3.domainkey.dpk2ikzsdalpp7gz5u7nsmcwt5wtskf627vh7o2tr5qictip25yoq.domains.proton.ch."
+
+"protonmail._domainkey":
+  type: "CNAME"
+  value: "protonmail.domainkey.dpk2ikzsdalpp7gz5u7nsmcwt5wtskf627vh7o2tr5qictip25yoq.domains.proton.ch."

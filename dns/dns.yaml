@@ -1,0 +1,38 @@
+---
+manager:
+  max_workers: 4
+
+providers:
+  config:
+    class: octodns.provider.yaml.YamlProvider
+    directory: ./zones
+    default_ttl: 300
+    enforce_order: True
+  route53:
+    class: octodns.provider.route53.Route53Provider
+    access_key_id: env/AWS_ACCESS_KEY_ID
+    secret_access_key: env/AWS_SECRET_ACCESS_KEY
+
+zones:
+  # personal
+  barrucadu.co.uk.: &standard-dns-config
+    sources:
+      - config
+    targets:
+      - route53
+  barrucadu.uk.:
+    <<: *standard-dns-config
+  barrucadu.com.:
+    <<: *standard-dns-config
+  barrucadu.dev.:
+    <<: *standard-dns-config
+  lookwhattheshoggothdraggedin.com.:
+    <<: *standard-dns-config
+  # open source projects
+  archhurd.org.:
+    <<: *standard-dns-config
+  uzbl.org.:
+    <<: *standard-dns-config
+  # miscellaneous
+  lainon.life.:
+    <<: *standard-dns-config

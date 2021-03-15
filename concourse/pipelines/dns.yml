@@ -1,0 +1,61 @@
+x-octodns-task: &octodns-task
+  platform: linux
+  image_resource:
+    type: docker-image
+    source:
+      repository: python
+      tag: 3.8
+  inputs:
+    - name: dns-git
+  params:
+    AWS_ACCESS_KEY_ID: ((octodns-aws-access-key-id))
+    AWS_SECRET_ACCESS_KEY: ((octodns-aws-secret-access-key))
+  run:
+    dir: dns-git/dns/
+    path: sh
+    args:
+      - -ce
+      - |
+        pip install octodns boto3
+        octodns-sync --config-file dns.yaml ${DOIT}
+
+resources:
+  - name: ops-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+  - name: dns-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+      paths:
+        - dns/
+
+jobs:
+  - name: update-pipeline
+    plan:
+      - get: ops-git
+        trigger: true
+      - set_pipeline: dns
+        file: ops-git/concourse/pipelines/dns.yml
+
+  - name: octodns-plan
+    serial: true
+    plan:
+      - get: dns-git
+        trigger: true
+      - task: plan
+        config:
+          <<: *octodns-task
+
+  - name: octodns-apply
+    serial: true
+    plan:
+      - get: dns-git
+        passed:
+          - octodns-plan
+      - task: apply
+        params:
+          DOIT: "--doit"
+        config:
+          <<: *octodns-task
