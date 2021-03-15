@@ -57,3 +57,38 @@ jobs:
           build: rsync-resource-git/concourse/rsync-resource/
           dockerfile: rsync-resource-git/concourse/rsync-resource/Dockerfile
           tag_as_latest: true
+
+  - name: hijack-me-to-add-secrets
+    plan:
+      - task: hijack-me-to-add-secrets
+        params:
+          AWS_ACCESS_KEY_ID: ((concourse-aws-access-key-id))
+          AWS_SECRET_ACCESS_KEY: ((concourse-aws-secret-access-key))
+          AWS_DEFAULT_REGION: eu-west-1
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: amazon/aws-cli
+          run:
+            path: sh
+            args:
+              - -c
+              - |
+                echo "Hijack this job and use the AWS CLI to add secrets."
+                echo
+                echo "First hijack the pipeline:"
+                echo "    fly -t dreamlands hijack -j concourse/hijack-me-to-add-secrets"
+                echo
+                echo "Then add secrets:"
+                echo "    aws ssm put-parameter \\"
+                echo "        --type SecureString \\"
+                echo "        --key-id 'arn:aws:kms:eu-west-1:197544591260:key/1f89c64e-2082-40bc-be3e-0e29da10536e' \\"
+                echo "        --name '/concourse/<team>/<name>' --value '<value>'"
+                echo
+                echo "Or read secrets:"
+                echo "    aws ssm get-parameter --with-decryption --name '/concourse/<team>/<name>'"
+                echo
+                echo "Sleeping now for 60s to give you time to hijack."
+                sleep 60

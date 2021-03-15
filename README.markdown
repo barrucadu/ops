@@ -59,7 +59,7 @@ pipeline for publishing my RPG blog][], but a few live here.
 There are three to deploy things from this repo:
 
 - aws, for running Terraform
-- concourse, for building the resource type docker images
+- concourse, for building the resource type docker images and for adding secrets
 - dns, for running OctoDNS
 
 And also two which don't have another repo to call home:
