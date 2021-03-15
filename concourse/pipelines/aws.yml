@@ -1,0 +1,66 @@
+x-terraform-task: &terraform-task
+  platform: linux
+  image_resource:
+    type: docker-image
+    source:
+      repository: hashicorp/terraform
+      tag: 0.14.8
+  inputs:
+    - name: aws-git
+  params:
+    AWS_ACCESS_KEY_ID: ((terraform-aws-access-key-id))
+    AWS_SECRET_ACCESS_KEY: ((terraform-aws-secret-access-key))
+    TFVAR_AWS_ACCOUNT_ID: ((aws-account-id))
+    TFVAR_EMAIL: mike@barrucadu.co.uk
+    TFVAR_PHONE: ((phone-number))
+  run:
+    dir: aws-git/aws/
+    path: sh
+    args:
+      - -ce
+      - |
+        terraform init          -var "aws_account_id=${TFVAR_AWS_ACCOUNT_ID}" -var "email=${TFVAR_EMAIL}" -var "phone=${TFVAR_PHONE}"
+        terraform ${TF_COMMAND} -var "aws_account_id=${TFVAR_AWS_ACCOUNT_ID}" -var "email=${TFVAR_EMAIL}" -var "phone=${TFVAR_PHONE}"
+
+resources:
+  - name: ops-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+  - name: aws-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+      paths:
+        - aws/
+
+jobs:
+  - name: update-pipeline
+    plan:
+      - get: ops-git
+        trigger: true
+      - set_pipeline: aws
+        file: ops-git/concourse/pipelines/aws.yml
+
+  - name: terraform-plan
+    serial: true
+    plan:
+      - get: aws-git
+        trigger: true
+      - task: plan
+        params:
+          TF_COMMAND: plan
+        config:
+          <<: *terraform-task
+
+  - name: terraform-apply
+    serial: true
+    plan:
+      - get: aws-git
+        passed:
+          - terraform-plan
+      - task: apply
+        params:
+          TF_COMMAND: "apply -auto-approve"
+        config:
+          <<: *terraform-task
