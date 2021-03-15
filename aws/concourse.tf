@@ -15,6 +15,10 @@ resource "aws_kms_key" "concourse" {
 
 /* ************************************************************************* */
 
+locals {
+  concourse_ip_addresses = ["94.130.74.147/32", "2a01:4f8:c0c:77b3::/64"]
+}
+
 resource "aws_iam_policy" "concourse" {
   name        = "concourse"
   description = "R/W access to the /concourse SSM Parameter Store namespace, with an encryption key."
@@ -37,6 +41,12 @@ data "aws_iam_policy_document" "concourse" {
       "arn:aws:ssm:eu-west-1:${var.aws_account_id}:parameter/concourse",
       "arn:aws:ssm:eu-west-1:${var.aws_account_id}:parameter/concourse/*",
     ]
+
+    condition {
+      test     = "IpAddress"
+      variable = "aws:SourceIp"
+      values   = local.concourse_ip_addresses
+    }
   }
 
   statement {
@@ -51,6 +61,12 @@ data "aws_iam_policy_document" "concourse" {
     resources = [
       aws_kms_key.concourse.arn
     ]
+
+    condition {
+      test     = "IpAddress"
+      variable = "aws:SourceIp"
+      values   = local.concourse_ip_addresses
+    }
   }
 
   statement {
@@ -64,5 +80,11 @@ data "aws_iam_policy_document" "concourse" {
     resources = [
       "*"
     ]
+
+    condition {
+      test     = "IpAddress"
+      variable = "aws:SourceIp"
+      values   = local.concourse_ip_addresses
+    }
   }
 }
