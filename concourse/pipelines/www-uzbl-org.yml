@@ -1,0 +1,65 @@
+resource_types:
+  - name: rsync-resource
+    type: docker-image
+    source:
+      repository: registry.barrucadu.dev/rsync-resource
+      username: registry
+      password: ((docker-registry-password))
+
+resources:
+  - name: ops-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+  - name: website-git
+    type: git
+    source:
+      uri: https://github.com/uzbl/uzbl-website.git
+  - name: docs-git
+    type: git
+    source:
+      uri: https://github.com/uzbl/uzbl.git
+  - name: website-rsync
+    type: rsync-resource
+    source:
+      server: dunwich.barrucadu.co.uk
+      remote_dir: /srv/http/uzbl.org/www
+      private_key: ((dunwich-ssh-private-key))
+  - name: docs-rsync
+    type: rsync-resource
+    source:
+      server: dunwich.barrucadu.co.uk
+      remote_dir: /srv/http/uzbl.org/uzbl
+      private_key: ((dunwich-ssh-private-key))
+
+jobs:
+  - name: update-pipeline
+    plan:
+      - get: ops-git
+        trigger: true
+      - set_pipeline: www-uzbl-org
+        file: ops-git/concourse/pipelines/www-uzbl-org.yml
+
+  - name: deploy-website
+    serial: true
+    plan:
+      - get: website-git
+        trigger: true
+      - put: website-rsync
+        params:
+          path: website-git
+          rsync-args:
+            - --delete
+            - --exclude=.git/
+
+  - name: deploy-docs
+    serial: true
+    plan:
+      - get: docs-git
+        trigger: true
+      - put: docs-rsync
+        params:
+          path: docs-git
+          rsync-args:
+            - --delete
+            - --exclude=.git/
