@@ -56,9 +56,7 @@ subprocess.check_call(
 
 actual_mtime = (
     subprocess.check_output(
-        "find {} -exec stat -c %Y {{}} \\; | sort -nr | head -n1".format(
-            local_dir[:-1]
-        ),
+        "find {} -exec stat -c %Y {{}} \\; | sort -nr | head -n1".format(local_dir[:-1]),
         shell=True,
     )
     .rstrip()
@@ -67,9 +65,7 @@ actual_mtime = (
 
 if actual_mtime != wanted_mtime:
     raise Exception(
-        "resource not available. wanted {} but have {}.".format(
-            wanted_mtime, actual_mtime
-        )
+        "resource not available. wanted {} but have {}.".format(wanted_mtime, actual_mtime)
     )
 
 result = {"version": {"mtime": actual_mtime}}
