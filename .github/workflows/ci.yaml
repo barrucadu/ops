@@ -1,0 +1,26 @@
+name: Run tests
+
+on: pull_request
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Lint
+        run: |
+          set -ex
+          pip install flake8 black
+          black -l 100 concourse/{feed,rsync}-resource/src/{check,in,out}
+          flake8 --max-line-length 100 concourse/{feed,rsync}-resource/src/{check,in,out}
+          git diff --exit-code
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Check Dependencies (feed-resource)
+        run: |
+          cd concourse/feed-resource
+          pip install -r requirements-freeze.txt
