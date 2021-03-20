@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: terraform
+    directory: /aws
+    schedule:
+      interval: daily
+  - package-ecosystem: docker
+    directory: /concourse/feed-resource
+    schedule:
+      interval: daily
+  - package-ecosystem: pip
+    directory: /concourse/feed-resource
+    schedule:
+      interval: daily
+  - package-ecosystem: docker
+    directory: /concourse/rsync-resource
+    schedule:
+      interval: daily
