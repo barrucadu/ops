@@ -19,10 +19,7 @@ if version:
 
 feed = feedparser.parse(uri)
 dates = sorted(
-    set(
-        datetime.fromtimestamp(mktime(entry["updated_parsed"]))
-        for entry in feed["entries"]
-    )
+    set(datetime.fromtimestamp(mktime(entry["updated_parsed"])) for entry in feed["entries"])
 )
 if version:
     dates = filter(lambda dt: dt >= version, dates)
