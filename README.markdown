@@ -61,6 +61,7 @@ There are three to deploy things from this repo:
 - aws, for running Terraform
 - concourse, for building the resource type docker images and for adding secrets
 - dns, for running OctoDNS
+- github, for running my GitHub configurator daily
 
 And also two which don't have another repo to call home:
 

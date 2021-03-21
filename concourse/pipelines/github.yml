@@ -1,0 +1,72 @@
+x-octodns-task: &octodns-task
+  platform: linux
+  image_resource:
+    type: docker-image
+    source:
+      repository: python
+      tag: 3.9.2
+  inputs:
+    - name: dns-git
+  params:
+    AWS_ACCESS_KEY_ID: ((octodns-aws-access-key-id))
+    AWS_SECRET_ACCESS_KEY: ((octodns-aws-secret-access-key))
+  run:
+    dir: dns-git/dns/
+    path: sh
+    args:
+      - -ce
+      - |
+        pip install octodns boto3
+        octodns-sync --config-file dns.yaml ${DOIT}
+
+resources:
+  - name: ops-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+  - name: github-git
+    type: git
+    source:
+      uri: https://github.com/barrucadu/ops.git
+      paths:
+        - github/
+  - name: every-day
+    type: time
+    source:
+      interval: 24h
+
+jobs:
+  - name: update-pipeline
+    plan:
+      - get: ops-git
+        trigger: true
+      - set_pipeline: github
+        file: ops-git/concourse/pipelines/github.yml
+
+  - name: configure-repos
+    serial: true
+    plan:
+      - get: every-day
+        trigger: true
+      - get: github-git
+        trigger: true
+      - task: configure-repos
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: ruby
+              tag: 3.0.0
+          inputs:
+            - name: github-git
+          params:
+            GITHUB_TOKEN: ((github-token))
+          run:
+            dir: github-git/github
+            path: sh
+            args:
+              - -ce
+              - |
+                bundle
+                bundle exec rake github:configure
