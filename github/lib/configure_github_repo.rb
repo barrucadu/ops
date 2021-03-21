@@ -28,7 +28,7 @@ class ConfigureGitHubRepo
       )
     end
 
-    check_attr :master_branch_protection, !branch_protection.empty?
+    check_attr :master_branch_protection, branch_protection?
     if opts[:master_branch_protection]
       check_attr :required_status_checks, branch_protection.dig(:required_status_checks, :contexts)
       check_attr :enforce_admins, branch_protection.dig(:enforce_admins, :enabled)
@@ -50,7 +50,7 @@ class ConfigureGitHubRepo
           allow_force_pushes: opts[:allow_force_push_to_master],
           required_linear_history: opts[:require_linear_history],
         )
-      else
+      elsif branch_protection?
         client.unprotect_branch(
           repo[:full_name],
           repo[:default_branch],
@@ -71,7 +71,7 @@ private
       allow_rebase_merge: pr_rules.fetch("allow_rebase_merge", false),
       delete_branch_on_merge: pr_rules.fetch("delete_branch_on_merge", true),
       # branch protection
-      master_branch_protection: branch_rules.fetch("master_branch_protection", !required_status_checks.nil?),
+      master_branch_protection: branch_rules.fetch("master_branch_protection", required_status_checks?),
       enforce_admins: branch_rules.fetch("enforce_admins", true),
       up_to_date_branches: branch_rules.fetch("up_to_date_branches", false),
       required_status_checks: branch_rules.fetch("required_status_checks", required_status_checks),
@@ -83,6 +83,10 @@ private
   def check_attr(key, actual)
     expected = opts[key]
     puts "    #{key}: '#{actual}' => '#{expected}'" unless expected == actual
+  end
+
+  def required_status_checks?
+    !required_status_checks.nil?
   end
 
   def required_status_checks
@@ -102,6 +106,10 @@ private
     rescue Octokit::NotFound
       nil
     end
+  end
+
+  def branch_protection?
+    !branch_protection.empty?
   end
 
   def branch_protection
