@@ -16,3 +16,7 @@ updates:
     directory: /concourse/rsync-resource
     schedule:
       interval: daily
+  - package-ecosystem: bundler
+    directory: /github
+    schedule:
+      interval: daily

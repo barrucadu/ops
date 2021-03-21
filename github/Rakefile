@@ -1,0 +1,13 @@
+require_relative "lib/configure_github_repos"
+
+namespace :github do
+  desc "Configure standard settings and branch protection"
+  task :configure do
+    ConfigureGitHubRepos.new.configure!
+  end
+
+  desc "Describe what would be done to configure standard settings and branch protection"
+  task :dry_run do
+    ConfigureGitHubRepos.new(dry_run: true).configure!
+  end
+end

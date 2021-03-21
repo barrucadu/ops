@@ -61,6 +61,7 @@ There are three to deploy things from this repo:
 - aws, for running Terraform
 - concourse, for building the resource type docker images and for adding secrets
 - dns, for running OctoDNS
+- github, for running my GitHub configurator daily
 
 And also two which don't have another repo to call home:
 
@@ -86,3 +87,21 @@ For domains which don't send email, I follow [this guidance on
 GOV.UK][].
 
 [this guidance on GOV.UK]: https://www.gov.uk/guidance/protect-domains-that-dont-send-email
+
+github
+------
+
+A script to set some default permissions on my GitHub repos:
+
+PR merging rules for all repos:
+
+- allow a PR to be merged by commit, but not by squash or rebase
+- delete a PR branch after merge
+
+Branch protection for master, if there are GitHub Actions defined:
+
+- require the lint & test actions to pass
+- don't require up-to-date branches before merging
+- don't allow force pushes
+- don't require a linear history
+- include admins in these restrictions
