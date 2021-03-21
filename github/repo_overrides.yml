@@ -1,0 +1,23 @@
+barrucadu/barrucadu.co.uk:
+  branch_protection:
+    master_branch_protection: false
+
+barrucadu/dejafu:
+  branch_protection:
+    required_status_checks:
+      - "doctest"
+      - "lint"
+      - "test (lts-10.0)"
+      - "test (lts-12.0)"
+      - "test (lts-13.3)"
+      - "test (lts-15.0)"
+      - "test (lts-17.0)"
+      - "test (lts-9.0)"
+
+barrucadu/lookwhattheshoggothdraggedin.com:
+  branch_protection:
+    master_branch_protection: false
+
+barrucadu/memo.barrucadu.co.uk:
+  branch_protection:
+    master_branch_protection: false
