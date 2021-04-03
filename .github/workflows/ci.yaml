@@ -23,6 +23,11 @@ jobs:
           cd github
           bundle
           bundle exec rubocop
+      - name: Lint (yaml)
+        run: |
+          set -ex
+          pip install yamllint
+          yamllint -s .
   test:
     runs-on: ubuntu-latest
     steps:
