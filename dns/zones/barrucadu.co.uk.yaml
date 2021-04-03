@@ -1,34 +1,34 @@
 ---
 "":
-- type: "A"
-  values:
-  - "116.203.134.200"
-- type: "AAAA"
-  values:
-  - "2a01:4f8:c2c:2b22::"
-- type: "MX"
-  values:
-  - exchange: "mail.protonmail.ch."
-    preference: 10
-  - exchange: "mailsec.protonmail.ch."
-    preference: 20
-- type: "TXT"
-  values:
-  - "protonmail-verification=68e94ed315f5df9a3060beb99c6c8ca059e0c741"
-  - "v=spf1 include:_spf.protonmail.ch mx ~all"
+  - type: "A"
+    values:
+      - "116.203.134.200"
+  - type: "AAAA"
+    values:
+      - "2a01:4f8:c2c:2b22::"
+  - type: "MX"
+    values:
+      - exchange: "mail.protonmail.ch."
+        preference: 10
+      - exchange: "mailsec.protonmail.ch."
+        preference: 20
+  - type: "TXT"
+    values:
+      - "protonmail-verification=68e94ed315f5df9a3060beb99c6c8ca059e0c741"
+      - "v=spf1 include:_spf.protonmail.ch mx ~all"
 
 "*":
-- type: "A"
-  values:
-  - "116.203.134.200"
-- type: "AAAA"
-  values:
-  - "2a01:4f8:c2c:2b22::"
+  - type: "A"
+    values:
+      - "116.203.134.200"
+  - type: "AAAA"
+    values:
+      - "2a01:4f8:c2c:2b22::"
 
 "_dmarc":
   type: "TXT"
   values:
-  - "v=DMARC1\\; p=none\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
+    - "v=DMARC1\\; p=none\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
 
 "dreamlands":
   type: "CNAME"
