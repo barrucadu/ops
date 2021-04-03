@@ -1,24 +1,3 @@
-x-octodns-task: &octodns-task
-  platform: linux
-  image_resource:
-    type: docker-image
-    source:
-      repository: python
-      tag: 3.9.2
-  inputs:
-    - name: dns-git
-  params:
-    AWS_ACCESS_KEY_ID: ((octodns-aws-access-key-id))
-    AWS_SECRET_ACCESS_KEY: ((octodns-aws-secret-access-key))
-  run:
-    dir: dns-git/dns/
-    path: sh
-    args:
-      - -ce
-      - |
-        pip install octodns boto3
-        octodns-sync --config-file dns.yaml ${DOIT}
-
 resources:
   - name: ops-git
     type: git
