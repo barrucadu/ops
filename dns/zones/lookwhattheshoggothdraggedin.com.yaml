@@ -1,26 +1,26 @@
 ---
 "":
-- type: "A"
-  values:
-  - "116.203.134.200"
-- type: "AAAA"
-  values:
-  - "2a01:4f8:c2c:2b22::"
-- type: "MX"
-  values:
-  - exchange: "."
-    preference: 0
-- type: "TXT"
-  values:
-  - "v=spf1 -all"
+  - type: "A"
+    values:
+      - "116.203.134.200"
+  - type: "AAAA"
+    values:
+      - "2a01:4f8:c2c:2b22::"
+  - type: "MX"
+    values:
+      - exchange: "."
+        preference: 0
+  - type: "TXT"
+    values:
+      - "v=spf1 -all"
 
 "*":
-- type: "A"
-  values:
-  - "116.203.134.200"
-- type: "AAAA"
-  values:
-  - "2a01:4f8:c2c:2b22::"
+  - type: "A"
+    values:
+      - "116.203.134.200"
+  - type: "AAAA"
+    values:
+      - "2a01:4f8:c2c:2b22::"
 
 "*._domainkey":
   type: "TXT"
@@ -29,4 +29,4 @@
 "_dmarc":
   type: "TXT"
   values:
-  - "v=DMARC1\\; p=reject\\; sp=reject\\; adkim=s\\; aspf=s\\; fo=1\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
+    - "v=DMARC1\\; p=reject\\; sp=reject\\; adkim=s\\; aspf=s\\; fo=1\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
