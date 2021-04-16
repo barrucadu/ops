@@ -2,10 +2,10 @@
 "":
   - type: "A"
     values:
-      - "116.203.134.200"
+      - "116.203.34.201"
   - type: "AAAA"
     values:
-      - "2a01:4f8:c2c:2b22::"
+      - "2a01:4f8:c0c:bfc1::"
   - type: "MX"
     values:
       - exchange: "mail.protonmail.ch."
@@ -30,29 +30,41 @@
   values:
     - "v=DMARC1\\; p=none\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
 
-"carcosa":
-  - type: "A"
-    values:
-      - "116.203.34.201"
-  - type: "AAAA"
-    values:
-      - "2a01:4f8:c0c:bfc1::"
-
-"dreamlands":
+"ap":
   type: "CNAME"
-  value: "barrucadu.dev."
+  value: "dunwich.barrucadu.co.uk."
 
-"dunwich":
+"bookdb":
+  type: "CNAME"
+  value: "dunwich.barrucadu.co.uk."
+
+"bookmarks":
+  type: "CNAME"
+  value: "dunwich.barrucadu.co.uk."
+
+"carcosa":
   type: "CNAME"
   value: "barrucadu.co.uk."
 
-"memo":
-  type: "CNAME"
-  value: "carcosa.barrucadu.co.uk."
+"dreamlands":
+  - type: "A"
+    values:
+      - "94.130.74.147"
+  - type: "AAAA"
+    values:
+      - "2a01:4f8:c0c:77b3::"
 
-"misc":
+"dunwich":
+  - type: "A"
+    values:
+      - "116.203.134.200"
+  - type: "AAAA"
+    values:
+      - "2a01:4f8:c2c:2b22::"
+
+"pad":
   type: "CNAME"
-  value: "carcosa.barrucadu.co.uk."
+  value: "dunwich.barrucadu.co.uk."
 
 "protonmail2._domainkey":
   type: "CNAME"
@@ -65,7 +77,3 @@
 "protonmail._domainkey":
   type: "CNAME"
   value: "protonmail.domainkey.dpk2ikzsdalpp7gz5u7nsmcwt5wtskf627vh7o2tr5qictip25yoq.domains.proton.ch."
-
-"www":
-  type: "CNAME"
-  value: "carcosa.barrucadu.co.uk."
