@@ -50,7 +50,7 @@ jobs:
           dockerfile: pleroma-git/Dockerfile
           tag_as_latest: true
 
-  - name: deploy-dunwich.barrucadu.co.uk
+  - name: deploy-concourse.barrucadu.co.uk
     serial: true
     plan:
       - get: pleroma-image
@@ -59,8 +59,8 @@ jobs:
           - build-image
       - task: deploy
         params:
-          HOST: dunwich.barrucadu.co.uk
-          SSH_PRIVATE_KEY: ((dunwich-ssh-private-key))
+          HOST: concourse.barrucadu.co.uk
+          SSH_PRIVATE_KEY: ((concourse-ssh-private-key))
         config:
           <<: *deploy-task
 

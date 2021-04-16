@@ -30,10 +30,6 @@
   values:
     - "v=DMARC1\\; p=none\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
 
-"ap":
-  type: "CNAME"
-  value: "dunwich.barrucadu.co.uk."
-
 "carcosa":
   type: "CNAME"
   value: "barrucadu.co.uk."
