@@ -16,7 +16,7 @@ resource "aws_kms_key" "concourse" {
 /* ************************************************************************* */
 
 locals {
-  concourse_ip_addresses = ["94.130.74.147/32", "2a01:4f8:c0c:77b3::/64"]
+  concourse_ip_addresses = ["94.130.74.147/32", "2a01:4f8:c0c:77b3::/64", "116.203.34.201/32", "2a01:4f8:c0c:bfc1::/64"]
 }
 
 resource "aws_iam_policy" "concourse" {
