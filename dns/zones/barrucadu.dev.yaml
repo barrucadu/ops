@@ -30,3 +30,7 @@
   type: "TXT"
   values:
     - "v=DMARC1\\; p=reject\\; sp=reject\\; adkim=s\\; aspf=s\\; fo=1\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
+
+"registry":
+  type: "CNAME"
+  value: "carcosa.barrucadu.co.uk."
