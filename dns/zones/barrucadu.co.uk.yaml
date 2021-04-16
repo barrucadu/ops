@@ -42,10 +42,6 @@
     values:
       - "2a01:4f8:c2c:2b22::"
 
-"pad":
-  type: "CNAME"
-  value: "dunwich.barrucadu.co.uk."
-
 "protonmail2._domainkey":
   type: "CNAME"
   value: "protonmail2.domainkey.dpk2ikzsdalpp7gz5u7nsmcwt5wtskf627vh7o2tr5qictip25yoq.domains.proton.ch."
