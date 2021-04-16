@@ -2,10 +2,10 @@
 "":
   - type: "A"
     values:
-      - "116.203.134.200"
+      - "116.203.34.201"
   - type: "AAAA"
     values:
-      - "2a01:4f8:c2c:2b22::"
+      - "2a01:4f8:c0c:bfc1::"
   - type: "MX"
     values:
       - exchange: "."
@@ -15,12 +15,8 @@
       - "v=spf1 -all"
 
 "*":
-  - type: "A"
-    values:
-      - "116.203.134.200"
-  - type: "AAAA"
-    values:
-      - "2a01:4f8:c2c:2b22::"
+  type: "CNAME"
+  value: "uzbl.org."
 
 "*._domainkey":
   type: "TXT"
