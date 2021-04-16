@@ -38,14 +38,6 @@
   type: "CNAME"
   value: "barrucadu.co.uk."
 
-"dreamlands":
-  - type: "A"
-    values:
-      - "94.130.74.147"
-  - type: "AAAA"
-    values:
-      - "2a01:4f8:c0c:77b3::"
-
 "dunwich":
   - type: "A"
     values:
