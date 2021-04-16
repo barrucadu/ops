@@ -34,14 +34,6 @@
   type: "CNAME"
   value: "dunwich.barrucadu.co.uk."
 
-"bookdb":
-  type: "CNAME"
-  value: "dunwich.barrucadu.co.uk."
-
-"bookmarks":
-  type: "CNAME"
-  value: "dunwich.barrucadu.co.uk."
-
 "carcosa":
   type: "CNAME"
   value: "barrucadu.co.uk."
