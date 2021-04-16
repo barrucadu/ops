@@ -27,10 +27,6 @@
   values:
     - "v=DMARC1\\; p=reject\\; sp=reject\\; adkim=s\\; aspf=s\\; fo=1\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
 
-"commento":
-  type: "CNAME"
-  value: "dunwich.barrucadu.co.uk."
-
 "umami":
   type: "CNAME"
   value: "dunwich.barrucadu.co.uk."
