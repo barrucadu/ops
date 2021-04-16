@@ -15,12 +15,8 @@
       - "v=spf1 -all"
 
 "*":
-  - type: "A"
-    values:
-      - "91.121.0.148"
-  - type: "AAAA"
-    values:
-      - "2001:41d0:0001:5394::1"
+  type: "CNAME"
+  value: "lainon.life."
 
 "*._domainkey":
   type: "TXT"
