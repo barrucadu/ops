@@ -25,10 +25,22 @@
     values:
       - "2a01:4f8:c2c:2b22::"
 
+"*.carcosa":
+  type: "CNAME"
+  value: "carcosa.barrucadu.co.uk."
+
 "_dmarc":
   type: "TXT"
   values:
     - "v=DMARC1\\; p=none\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
+
+"carcosa":
+  - type: "A"
+    values:
+      - "116.203.34.201"
+  - type: "AAAA"
+    values:
+      - "2a01:4f8:c0c:bfc1::"
 
 "dreamlands":
   type: "CNAME"
