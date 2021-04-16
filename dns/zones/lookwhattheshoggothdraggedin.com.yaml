@@ -2,10 +2,10 @@
 "":
   - type: "A"
     values:
-      - "116.203.134.200"
+      - "116.203.34.201"
   - type: "AAAA"
     values:
-      - "2a01:4f8:c2c:2b22::"
+      - "2a01:4f8:c0c:bfc1::"
   - type: "MX"
     values:
       - exchange: "."
@@ -27,6 +27,10 @@
   values:
     - "v=DMARC1\\; p=reject\\; sp=reject\\; adkim=s\\; aspf=s\\; fo=1\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
 
-"www":
+"commento":
   type: "CNAME"
-  value: "carcosa.barrucadu.co.uk."
+  value: "dunwich.barrucadu.co.uk."
+
+"umami":
+  type: "CNAME"
+  value: "dunwich.barrucadu.co.uk."
