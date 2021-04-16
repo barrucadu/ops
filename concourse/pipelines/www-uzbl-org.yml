@@ -22,15 +22,15 @@ resources:
   - name: website-rsync
     type: rsync-resource
     source:
-      server: dunwich.barrucadu.co.uk
-      remote_dir: /srv/http/uzbl.org/www
-      private_key: ((dunwich-ssh-private-key))
+      server: carcosa.barrucadu.co.uk
+      remote_dir: /persist/srv/http/uzbl.org/www
+      private_key: ((carcosa-ssh-private-key))
   - name: docs-rsync
     type: rsync-resource
     source:
-      server: dunwich.barrucadu.co.uk
-      remote_dir: /srv/http/uzbl.org/uzbl
-      private_key: ((dunwich-ssh-private-key))
+      server: carcosa.barrucadu.co.uk
+      remote_dir: /persist/srv/http/uzbl.org/uzbl
+      private_key: ((carcosa-ssh-private-key))
 
 jobs:
   - name: update-pipeline
