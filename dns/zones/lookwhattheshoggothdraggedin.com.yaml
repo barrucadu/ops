@@ -15,12 +15,8 @@
       - "v=spf1 -all"
 
 "*":
-  - type: "A"
-    values:
-      - "116.203.134.200"
-  - type: "AAAA"
-    values:
-      - "2a01:4f8:c2c:2b22::"
+  type: "CNAME"
+  value: "lookwhattheshoggothdraggedin.com."
 
 "*._domainkey":
   type: "TXT"
@@ -30,3 +26,7 @@
   type: "TXT"
   values:
     - "v=DMARC1\\; p=reject\\; sp=reject\\; adkim=s\\; aspf=s\\; fo=1\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
+
+"www":
+  type: "CNAME"
+  value: "carcosa.barrucadu.co.uk."

@@ -12,9 +12,8 @@
       - "v=spf1 -all"
 
 "*":
-  - type: "A"
-    values:
-      - "128.199.32.197"
+  type: "CNAME"
+  value: "archhurd.org."
 
 "*._domainkey":
   type: "TXT"

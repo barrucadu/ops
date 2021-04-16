@@ -18,12 +18,8 @@
       - "v=spf1 include:_spf.protonmail.ch mx ~all"
 
 "*":
-  - type: "A"
-    values:
-      - "116.203.134.200"
-  - type: "AAAA"
-    values:
-      - "2a01:4f8:c2c:2b22::"
+  type: "CNAME"
+  value: "barrucadu.co.uk."
 
 "*.carcosa":
   type: "CNAME"
@@ -50,6 +46,14 @@
   type: "CNAME"
   value: "barrucadu.co.uk."
 
+"memo":
+  type: "CNAME"
+  value: "carcosa.barrucadu.co.uk."
+
+"misc":
+  type: "CNAME"
+  value: "carcosa.barrucadu.co.uk."
+
 "protonmail2._domainkey":
   type: "CNAME"
   value: "protonmail2.domainkey.dpk2ikzsdalpp7gz5u7nsmcwt5wtskf627vh7o2tr5qictip25yoq.domains.proton.ch."
@@ -61,3 +65,7 @@
 "protonmail._domainkey":
   type: "CNAME"
   value: "protonmail.domainkey.dpk2ikzsdalpp7gz5u7nsmcwt5wtskf627vh7o2tr5qictip25yoq.domains.proton.ch."
+
+"www":
+  type: "CNAME"
+  value: "carcosa.barrucadu.co.uk."
