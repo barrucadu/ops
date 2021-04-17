@@ -50,7 +50,7 @@ jobs:
           dockerfile: pleroma-git/Dockerfile
           tag_as_latest: true
 
-  - name: deploy-concourse.barrucadu.co.uk
+  - name: deploy-carcosa.barrucadu.co.uk
     serial: true
     plan:
       - get: pleroma-image
@@ -59,8 +59,8 @@ jobs:
           - build-image
       - task: deploy
         params:
-          HOST: concourse.barrucadu.co.uk
-          SSH_PRIVATE_KEY: ((concourse-ssh-private-key))
+          HOST: carcosa.barrucadu.co.uk
+          SSH_PRIVATE_KEY: ((carcosa-ssh-private-key))
         config:
           <<: *deploy-task
 
