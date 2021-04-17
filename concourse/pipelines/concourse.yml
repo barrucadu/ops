@@ -79,7 +79,7 @@ jobs:
                 echo "Hijack this job and use the AWS CLI to add secrets."
                 echo
                 echo "First hijack the pipeline:"
-                echo "    fly -t dreamlands hijack -j concourse/hijack-me-to-add-secrets"
+                echo "    fly -t carcosa hijack -j concourse/hijack-me-to-add-secrets"
                 echo
                 echo "Then add secrets:"
                 echo "    aws ssm put-parameter \\"
