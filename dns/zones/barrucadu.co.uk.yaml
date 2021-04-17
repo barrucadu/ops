@@ -30,10 +30,6 @@
   values:
     - "v=DMARC1\\; p=none\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
 
-"ap":
-  type: "CNAME"
-  value: "dunwich.barrucadu.co.uk."
-
 "carcosa":
   type: "CNAME"
   value: "barrucadu.co.uk."
@@ -45,10 +41,6 @@
   - type: "AAAA"
     values:
       - "2a01:4f8:c2c:2b22::"
-
-"pad":
-  type: "CNAME"
-  value: "dunwich.barrucadu.co.uk."
 
 "protonmail2._domainkey":
   type: "CNAME"
