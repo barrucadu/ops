@@ -120,5 +120,7 @@ private
       repo[:default_branch],
       accept: Octokit::Preview::PREVIEW_TYPES[:branch_protection],
     ).to_h
+  rescue Octokit::Forbidden
+    {}
   end
 end
