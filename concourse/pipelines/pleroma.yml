@@ -13,7 +13,7 @@ x-deploy-task: &deploy-task
         chmod 600 ssh-private-key
         set -x
         apk add --no-cache openssh
-        ssh -i ssh-private-key -o "StrictHostKeyChecking no" "concourse-deploy-robot@${HOST}" sudo systemctl restart pleroma
+        ssh -i ssh-private-key -o "StrictHostKeyChecking no" "concourse-deploy-robot@${HOST}" sudo systemctl restart docker-pleroma
 
 resources:
   - name: ops-git
