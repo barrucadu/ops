@@ -28,7 +28,7 @@
 "_dmarc":
   type: "TXT"
   values:
-    - "v=DMARC1\\; p=none\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
+    - "v=DMARC1\\; p=reject\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
 
 "carcosa":
   type: "CNAME"
