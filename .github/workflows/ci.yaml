@@ -37,10 +37,10 @@ jobs:
         run: |
           cd concourse/feed-resource
           pip install -r requirements-freeze.txt
-      - name: Check Configuration (octodns)
+      - name: Check Configuration and Dependencies (octodns)
         run: |
           cd dns
-          pip install octodns boto3
+          pip install -r requirements-freeze.txt
           export AWS_ACCESS_KEY_ID=dummy
           export AWS_SECRET_ACCESS_KEY=dummy
           octodns-validate --config-file dns.yaml
