@@ -4,7 +4,7 @@ x-terraform-task: &terraform-task
     type: docker-image
     source:
       repository: hashicorp/terraform
-      tag: 0.14.8
+      tag: 1.1.7
   inputs:
     - name: aws-git
   params:

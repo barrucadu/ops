@@ -11,15 +11,36 @@ resource "aws_iam_user_policy_attachment" "backups" {
 
 resource "aws_s3_bucket" "backups" {
   bucket = "barrucadu-backups"
+}
+
+resource "aws_s3_bucket_public_access_block" "backups" {
+  bucket = aws_s3_bucket.backups.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+resource "aws_s3_bucket_acl" "backups" {
+  bucket = aws_s3_bucket.backups.id
   acl    = "private"
+}
 
-  versioning {
-    enabled = true
+resource "aws_s3_bucket_versioning" "backups" {
+  bucket = aws_s3_bucket.backups.id
+
+  versioning_configuration {
+    status = "Enabled"
   }
+}
 
-  lifecycle_rule {
-    id      = "archive"
-    enabled = true
+resource "aws_s3_bucket_lifecycle_configuration" "backups" {
+  bucket = aws_s3_bucket.backups.id
+
+  rule {
+    id     = "archive"
+    status = "Enabled"
 
     transition {
       days          = 32
@@ -31,15 +52,6 @@ resource "aws_s3_bucket" "backups" {
       storage_class = "GLACIER"
     }
   }
-}
-
-resource "aws_s3_bucket_public_access_block" "backups" {
-  bucket = aws_s3_bucket.backups.id
-
-  block_public_acls       = true
-  block_public_policy     = true
-  ignore_public_acls      = true
-  restrict_public_buckets = true
 }
 
 /* ************************************************************************* */
