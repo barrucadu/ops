@@ -30,6 +30,14 @@
   values:
     - "v=DMARC1\\; p=reject\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
 
+"_minecraft._tcp.tea.minecraft.barrucadu.co.uk":
+  type: "SRV"
+  value:
+    port: 25565
+    priority: 1
+    target: "carcosa.barrucadu.co.uk."
+    weight: 0
+
 "carcosa":
   type: "CNAME"
   value: "barrucadu.co.uk."
