@@ -2,7 +2,7 @@ resource "aws_iam_user" "notifications" {
   name = "notifications"
 }
 
-resource "aws_iam_user_policy_attachment" "backups" {
+resource "aws_iam_user_policy_attachment" "backups_publish_notifications" {
   user       = aws_iam_user.backups.name
   policy_arn = aws_iam_policy.notifications.arn
 }
