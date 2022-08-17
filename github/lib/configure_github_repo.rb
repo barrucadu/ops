@@ -50,7 +50,6 @@ class ConfigureGitHubRepo
           allow_force_pushes: opts[:allow_force_push_to_master],
           required_linear_history: opts[:require_linear_history],
           required_pull_request_reviews: nil,
-          accept: Octokit::Preview::PREVIEW_TYPES[:branch_protection],
         )
       elsif branch_protection?
         client.unprotect_branch(
@@ -118,7 +117,6 @@ private
     @branch_protection ||= client.branch_protection(
       repo[:full_name],
       repo[:default_branch],
-      accept: Octokit::Preview::PREVIEW_TYPES[:branch_protection],
     ).to_h
   rescue Octokit::Forbidden
     {}
