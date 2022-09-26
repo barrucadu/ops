@@ -26,3 +26,10 @@ barrucadu/memo.barrucadu.co.uk:
 barrucadu/fonts:
   branch_protection:
     master_branch_protection: false
+
+barrucadu/resolved:
+  branch_protection:
+    required_status_checks:
+      - "lint"
+      - "test"
+      - "fuzz"
