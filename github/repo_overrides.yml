@@ -12,6 +12,7 @@ barrucadu/dejafu:
       - "test (lts-13.3)"
       - "test (lts-15.0)"
       - "test (lts-17.0)"
+      - "test (lts-19.0)"
       - "test (lts-9.0)"
 
 barrucadu/lookwhattheshoggothdraggedin.com:
