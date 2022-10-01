@@ -50,20 +50,6 @@ jobs:
           dockerfile: pleroma-git/Dockerfile
           tag_as_latest: true
 
-  - name: deploy-carcosa.barrucadu.co.uk
-    serial: true
-    plan:
-      - get: pleroma-image
-        trigger: true
-        passed:
-          - build-image
-      - task: deploy
-        params:
-          HOST: carcosa.barrucadu.co.uk
-          SSH_PRIVATE_KEY: ((carcosa-ssh-private-key))
-        config:
-          <<: *deploy-task
-
   - name: deploy-social.lainon.life
     serial: true
     plan:
