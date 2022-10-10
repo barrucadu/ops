@@ -23,7 +23,7 @@ resources:
   - name: pleroma-git
     type: git
     source:
-      uri: https://github.com/barrucadu/pleroma.git
+      uri: https://git.pleroma.social/pleroma/pleroma.git
   - name: pleroma-image
     type: docker-image
     source:
