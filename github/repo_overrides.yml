@@ -23,6 +23,10 @@ barrucadu/memo.barrucadu.co.uk:
   branch_protection:
     master_branch_protection: false
 
+barrucadu/weeknotes.barrucadu.co.uk:
+  branch_protection:
+    master_branch_protection: false
+
 barrucadu/fonts:
   branch_protection:
     master_branch_protection: false
