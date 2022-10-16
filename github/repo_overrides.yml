@@ -23,13 +23,13 @@ barrucadu/memo.barrucadu.co.uk:
   branch_protection:
     master_branch_protection: false
 
-barrucadu/weeknotes.barrucadu.co.uk:
-  branch_protection:
-    master_branch_protection: false
-
 barrucadu/resolved:
   branch_protection:
     required_status_checks:
       - "lint"
       - "test"
       - "fuzz"
+
+barrucadu/weeknotes.barrucadu.co.uk:
+  branch_protection:
+    master_branch_protection: false
