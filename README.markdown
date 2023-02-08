@@ -63,16 +63,13 @@ There are three to deploy things from this repo:
 - dns, for running OctoDNS
 - github, for running my GitHub configurator daily
 
-And also two which don't have another repo to call home:
+And also one which doesn't have another repo to call home:
 
-- pleroma, for building a [Pleroma][] docker image and deploying it to
-  [ap.barrucadu.co.uk][] and [social.lainon.life][]
 - www-uzbl-org, for deploying [www.uzbl.org][], which I host, but
   don't own the repo of
 
 [this pipeline for testing & publishing new dejafu versions]: https://github.com/barrucadu/dejafu/blob/master/concourse/pipeline.yml
 [this pipeline for publishing my RPG blog]: https://github.com/barrucadu/lookwhattheshoggothdraggedin.com/blob/master/concourse/pipeline.yml
-[Pleroma]: https://pleroma.social/
 [ap.barrucadu.co.uk]: https://ap.barrucadu.co.uk/main/all
 [social.lainon.life]: https://social.lainon.life/main/all
 [www.uzbl.org]: https://www.uzbl.org/
