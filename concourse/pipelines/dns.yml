@@ -4,7 +4,7 @@ x-octodns-task: &octodns-task
     type: docker-image
     source:
       repository: python
-      tag: 3.10
+      tag: "3.10"
   inputs:
     - name: dns-git
   params:
