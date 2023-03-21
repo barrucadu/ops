@@ -11,6 +11,8 @@ resource "aws_iam_user_policy_attachment" "concourse" {
 
 resource "aws_kms_key" "concourse" {
   description = "Key for Concourse secrets"
+
+  enable_key_rotation = true
 }
 
 /* ************************************************************************* */
