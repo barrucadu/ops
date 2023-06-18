@@ -7,14 +7,14 @@ barrucadu/dejafu:
     required_status_checks:
       - "doctest"
       - "lint"
-      - "test (lts-9.0)"
       - "test (lts-10.0)"
       - "test (lts-12.0)"
-      - "test (lts-13.3)"
+      - "test (lts-14.0)"
       - "test (lts-15.0)"
       - "test (lts-17.0)"
       - "test (lts-19.0)"
       - "test (lts-20.0)"
+      - "test (nightly-2023-01-01)"
 
 barrucadu/lookwhattheshoggothdraggedin.com:
   branch_protection:
