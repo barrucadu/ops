@@ -14,7 +14,8 @@ barrucadu/dejafu:
       - "test (lts-17.0)"
       - "test (lts-19.0)"
       - "test (lts-20.0)"
-      - "test (nightly-2023-01-01)"
+      - "test (lts-21.0)"
+      - "test (nightly-2023-07-01)"
 
 barrucadu/lookwhattheshoggothdraggedin.com:
   branch_protection:
