@@ -53,3 +53,7 @@
 "protonmail._domainkey":
   type: "CNAME"
   value: "protonmail.domainkey.dpk2ikzsdalpp7gz5u7nsmcwt5wtskf627vh7o2tr5qictip25yoq.domains.proton.ch."
+
+"resolved.docs":
+  type: "CNAME"
+  value: "barrucadu.github.io."
