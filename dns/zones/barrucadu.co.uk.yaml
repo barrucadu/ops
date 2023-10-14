@@ -30,6 +30,14 @@
   values:
     - "v=DMARC1\\; p=reject\\; rua=mailto:mike+dmarc@barrucadu.co.uk"
 
+"_github-pages-challenge-barrucadu":
+  type: "TXT"
+  value: "13fb7a87bac4c7bcfe2ff96a1dd383"
+
+"_github-pages-challenge-barrucadu.docs":
+  type: "TXT"
+  value: "22f45732604e248fe0c453878221d7"
+
 "carcosa":
   type: "CNAME"
   value: "barrucadu.co.uk."
