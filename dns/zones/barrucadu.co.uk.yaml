@@ -42,6 +42,10 @@
   type: "CNAME"
   value: "barrucadu.co.uk."
 
+"nixfiles.docs":
+  type: "CNAME"
+  value: "barrucadu.github.io."
+
 "protonmail2._domainkey":
   type: "CNAME"
   value: "protonmail2.domainkey.dpk2ikzsdalpp7gz5u7nsmcwt5wtskf627vh7o2tr5qictip25yoq.domains.proton.ch."
