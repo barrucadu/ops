@@ -42,6 +42,10 @@
   type: "CNAME"
   value: "barrucadu.co.uk."
 
+"dejafu.docs":
+  type: "CNAME"
+  value: "barrucadu.github.io."
+
 "nixfiles.docs":
   type: "CNAME"
   value: "barrucadu.github.io."
