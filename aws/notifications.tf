@@ -24,6 +24,12 @@ resource "aws_sns_topic_subscription" "sms" {
   endpoint  = var.phone
 }
 
+# this is an account-wide setting - can be overridden when sending individual
+# messages
+resource "aws_sns_sms_preferences" "sms" {
+  default_sender_id = "BARRU-OPS"
+}
+
 ## terraform cannot create the email subscription because it must be
 ## manually confirmed
 # resource "aws_sns_topic_subscription" "email" {
