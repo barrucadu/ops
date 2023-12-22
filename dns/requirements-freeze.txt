@@ -6,7 +6,7 @@ dnspython==2.2.1
 fqdn==1.5.1
 iniconfig==1.1.1
 jmespath==1.0.0
-natsort==8.1.0
+natsort==8.4.0
 octodns==0.9.16
 octodns-route53==0.0.4
 packaging==21.3
