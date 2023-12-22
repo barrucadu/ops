@@ -13,7 +13,7 @@ packaging==23.2
 pluggy==1.0.0
 pprintpp==0.4.0
 py==1.11.0
-pycountry==22.3.5
+pycountry==23.12.11
 pycountry-convert==0.7.2
 pyparsing==3.0.7
 pytest==7.4.3
