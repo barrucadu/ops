@@ -5,7 +5,7 @@ coverage==7.3.4
 dnspython==2.4.2
 fqdn==1.5.1
 iniconfig==2.0.0
-jmespath==1.0.0
+jmespath==1.0.1
 natsort==8.4.0
 octodns==0.9.16
 octodns-route53==0.0.4
