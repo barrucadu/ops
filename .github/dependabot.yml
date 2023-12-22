@@ -1,5 +1,9 @@
 version: 2
 updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
   - package-ecosystem: terraform
     directory: /aws
     schedule:
@@ -14,6 +18,10 @@ updates:
       interval: daily
   - package-ecosystem: docker
     directory: /concourse/rsync-resource
+    schedule:
+      interval: daily
+  - package-ecosystem: pip
+    directory: /dns
     schedule:
       interval: daily
   - package-ecosystem: bundler
