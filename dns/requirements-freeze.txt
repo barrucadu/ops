@@ -4,7 +4,7 @@ botocore==1.24.31
 coverage==7.3.4
 dnspython==2.4.2
 fqdn==1.5.1
-iniconfig==1.1.1
+iniconfig==2.0.0
 jmespath==1.0.0
 natsort==8.4.0
 octodns==0.9.16
