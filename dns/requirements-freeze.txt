@@ -16,7 +16,7 @@ py==1.11.0
 pycountry==23.12.11
 pycountry-convert==0.7.2
 pyparsing==3.1.1
-pytest==8.0.0
+pytest==8.0.1
 pytest-cov==4.1.0
 pytest-mock==3.12.0
 python-dateutil==2.8.2
