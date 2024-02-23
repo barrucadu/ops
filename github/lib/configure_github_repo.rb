@@ -100,13 +100,17 @@ private
   end
 
   def github_actions
-    @github_actions ||= begin
-      encoded_content = client.contents(repo[:full_name], path: ".github/workflows/ci.yaml").content
-      decoded_content = Base64.decode64(encoded_content)
-      YAML.safe_load(decoded_content)
-    rescue Octokit::NotFound
-      nil
-    end
+    @github_actions ||=
+      try_github_actions(".github/workflows/ci.yaml") ||
+      try_github_actions(".github/workflows/ci.yml")
+  end
+
+  def try_github_actions(path)
+    encoded_content = client.contents(repo[:full_name], path: path).content
+    decoded_content = Base64.decode64(encoded_content)
+    YAML.safe_load(decoded_content)
+  rescue Octokit::NotFound
+    nil
   end
 
   def branch_protection?
