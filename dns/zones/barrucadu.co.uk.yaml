@@ -65,3 +65,7 @@
 "resolved.docs":
   type: "CNAME"
   value: "barrucadu.github.io."
+
+"thing-doer.docs":
+  type: "CNAME"
+  value: "barrucadu.github.io."
