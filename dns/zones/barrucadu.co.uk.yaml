@@ -15,7 +15,7 @@
   - type: "TXT"
     values:
       - "protonmail-verification=68e94ed315f5df9a3060beb99c6c8ca059e0c741"
-      - "v=spf1 include:_spf.protonmail.ch mx ~all"
+      - "v=spf1 include:_spf.protonmail.ch mx -all"
 
 "*":
   type: "CNAME"
