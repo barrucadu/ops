@@ -32,6 +32,13 @@ barrucadu/resolved:
       - "test"
       - "fuzz"
 
+barrucadu/thing-doer:
+  branch_protection:
+    required_status_checks:
+      - "lint"
+      - "test"
+      - "integration-tests"
+
 barrucadu/weeknotes.barrucadu.co.uk:
   branch_protection:
     master_branch_protection: false
