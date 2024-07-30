@@ -1,3 +1,7 @@
+resource "aws_iam_user" "backups" {
+  name = "backup-scripts"
+}
+
 resource "aws_iam_user" "notifications" {
   name = "notifications"
 }
