@@ -17,6 +17,10 @@ barrucadu/dejafu:
       - "test (lts-21.0)"
       - "test (nightly-2023-07-01)"
 
+barrucadu/king-james-programming:
+  branch_protection:
+    master_branch_protection: false
+
 barrucadu/lookwhattheshoggothdraggedin.com:
   branch_protection:
     master_branch_protection: false
