@@ -15,7 +15,7 @@ resource "aws_iam_user" "acme_dns_challenge" {
 resource "aws_iam_user_policy_attachment" "acme_dns_challenge" {
   for_each = local.hosted_zones
 
-  user       = aws_iam_user.acme_dns_challenge[each.key].name
+  user       = aws_iam_user.acme_dns_challenge.name
   policy_arn = aws_iam_policy.acme_dns_challenge[each.key].arn
 }
 
