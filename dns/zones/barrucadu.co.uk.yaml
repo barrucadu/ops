@@ -25,6 +25,10 @@
   type: "CNAME"
   value: "carcosa.barrucadu.co.uk."
 
+"*.yuggoth":
+  type: "CNAME"
+  value: "yuggoth.barrucadu.co.uk."
+
 "_acme-challenge":
   ttl: 10
   type: "TXT"
@@ -45,8 +49,12 @@
   value: "22f45732604e248fe0c453878221d7"
 
 "carcosa":
-  type: "CNAME"
-  value: "barrucadu.co.uk."
+  - type: "A"
+    values:
+      - "116.203.34.201"
+  - type: "AAAA"
+    values:
+      - "2a01:4f8:c0c:bfc1::"
 
 "dejafu.docs":
   type: "CNAME"
@@ -75,3 +83,11 @@
 "thing-doer.docs":
   type: "CNAME"
   value: "barrucadu.github.io."
+
+"yuggoth":
+  - type: "A"
+    values:
+      - "178.156.151.57"
+  - type: "AAAA"
+    values:
+      - "2a01:4ff:f0:3a38::"
