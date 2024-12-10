@@ -25,6 +25,11 @@
   type: "CNAME"
   value: "carcosa.barrucadu.co.uk."
 
+"_acme-challenge":
+  type: "TXT"
+  values:
+    - ""
+
 "_dmarc":
   type: "TXT"
   values:

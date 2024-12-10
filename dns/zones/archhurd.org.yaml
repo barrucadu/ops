@@ -19,6 +19,11 @@
   type: "TXT"
   value: "v=DKIM1\\; p="
 
+"_acme-challenge":
+  type: "TXT"
+  values:
+    - ""
+
 "_dmarc":
   type: "TXT"
   values:
