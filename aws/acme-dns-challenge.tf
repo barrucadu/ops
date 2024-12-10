@@ -5,6 +5,18 @@ locals {
       domain = "barrucadu.co.uk"
       zone_id = "ZNU9LQOCWHL2G"
     }
+    barrucadu_com = {
+      domain = "barrucadu.com"
+      zone_id = "Z1C3JSO4U0YR4W"
+    }
+    barrucadu_dev = {
+      domain = "barrucadu.dev"
+      zone_id = "ZLNB2NX649UB7"
+    }
+    barrucadu_uk = {
+      domain = "barrucadu.uk"
+      zone_id = "Z2DLRR7BSV8HA0"
+    }
   }
 }
 
