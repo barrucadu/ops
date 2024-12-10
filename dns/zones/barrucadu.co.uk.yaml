@@ -26,6 +26,7 @@
   value: "carcosa.barrucadu.co.uk."
 
 "_acme-challenge":
+  ttl: 10
   type: "TXT"
   values:
     - ""

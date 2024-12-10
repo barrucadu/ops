@@ -20,6 +20,7 @@
   value: "v=DKIM1\\; p="
 
 "_acme-challenge":
+  ttl: 10
   type: "TXT"
   values:
     - ""
