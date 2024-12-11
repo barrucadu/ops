@@ -94,6 +94,14 @@
   type: "CNAME"
   value: "barrucadu.github.io."
 
+"foundry":
+  type: "CNAME"
+  value: "carcosa.barrucadu.co.uk."
+
+"misc":
+  type: "CNAME"
+  value: "carcosa.barrucadu.co.uk."
+
 "nixfiles.docs":
   type: "CNAME"
   value: "barrucadu.github.io."
