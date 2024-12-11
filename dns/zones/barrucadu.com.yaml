@@ -7,7 +7,7 @@
           values:
             - value: "178.156.151.57"
         # carcosa
-        fallback:
+        rest_of_world:
           values:
             - value: "116.203.34.201"
       rules:
@@ -15,7 +15,7 @@
             - "NA"
             - "SA"
           pool: "america"
-        - pool: "fallback"
+        - pool: "rest_of_world"
     type: "A"
     values:
       - "178.156.151.57"
@@ -27,7 +27,7 @@
           values:
             - value: "2a01:4ff:f0:3a38::"
         # carcosa
-        fallback:
+        rest_of_world:
           values:
             - value: "2a01:4f8:c0c:bfc1::"
       rules:
@@ -35,7 +35,7 @@
             - "NA"
             - "SA"
           pool: "america"
-        - pool: "fallback"
+        - pool: "rest_of_world"
     type: "AAAA"
     values:
       - "2a01:4ff:f0:3a38::"
