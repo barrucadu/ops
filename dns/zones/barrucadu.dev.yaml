@@ -16,6 +16,9 @@
             - "SA"
           pool: "america"
         - pool: "rest_of_world"
+    octodns:
+      healthcheck:
+        protocol: "TCP"
     type: "A"
     values:
       - "178.156.151.57"
@@ -36,6 +39,9 @@
             - "SA"
           pool: "america"
         - pool: "rest_of_world"
+    octodns:
+      healthcheck:
+        protocol: "TCP"
     type: "AAAA"
     values:
       - "2a01:4ff:f0:3a38::"
