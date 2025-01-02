@@ -5,20 +5,19 @@
         # yuggoth
         america:
           values:
-            - value: "178.156.151.57"
+            - status: "up"
+              value: "178.156.151.57"
         # carcosa
         rest_of_world:
           values:
-            - value: "116.203.34.201"
+            - status: "up"
+              value: "116.203.34.201"
       rules:
         - geos:
             - "NA"
             - "SA"
           pool: "america"
         - pool: "rest_of_world"
-    octodns:
-      healthcheck:
-        protocol: "TCP"
     type: "A"
     values:
       - "178.156.151.57"
@@ -28,20 +27,19 @@
         # yuggoth
         america:
           values:
-            - value: "2a01:4ff:f0:3a38::"
+            - status: "up"
+              value: "2a01:4ff:f0:3a38::"
         # carcosa
         rest_of_world:
           values:
-            - value: "2a01:4f8:c0c:bfc1::"
+            - status: "up"
+              value: "2a01:4f8:c0c:bfc1::"
       rules:
         - geos:
             - "NA"
             - "SA"
           pool: "america"
         - pool: "rest_of_world"
-    octodns:
-      healthcheck:
-        protocol: "TCP"
     type: "AAAA"
     values:
       - "2a01:4ff:f0:3a38::"
