@@ -1,7 +1,7 @@
 attrs==25.1.0
 boto3==1.36.15
 botocore==1.36.15
-coverage==7.6.10
+coverage==7.6.11
 dnspython==2.7.0
 fqdn==1.5.1
 iniconfig==2.0.0
