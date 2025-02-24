@@ -1,10 +1,5 @@
 x-terraform-task: &terraform-task
   platform: linux
-  image_resource:
-    type: docker-image
-    source:
-      repository: hashicorp/terraform
-      tag: "1.1.7"
   inputs:
     - name: aws-git
   params:
@@ -23,6 +18,11 @@ x-terraform-task: &terraform-task
         terraform ${TF_COMMAND} -var "aws_account_id=${TFVAR_AWS_ACCOUNT_ID}" -var "email=${TFVAR_EMAIL}" -var "phone=${TFVAR_PHONE}"
 
 resources:
+  - name: terraform-image
+    type: registry-image
+    source:
+      repository: mirror.gcr.io/hashicorp/terraform
+      tag: "1.1.7"
   - name: ops-git
     type: git
     source:
@@ -45,9 +45,11 @@ jobs:
   - name: terraform-plan
     serial: true
     plan:
+      - get: terraform-image
       - get: aws-git
         trigger: true
       - task: plan
+        image: terraform-image
         params:
           TF_COMMAND: plan
         config:
@@ -56,10 +58,12 @@ jobs:
   - name: terraform-apply
     serial: true
     plan:
+      - get: terraform-image
       - get: aws-git
         passed:
           - terraform-plan
       - task: apply
+        image: terraform-image
         params:
           TF_COMMAND: "apply -auto-approve"
         config:

@@ -1,4 +1,9 @@
 resources:
+  - name: ruby-image
+    type: registry-image
+    source:
+      repository: mirror.gcr.io/ruby
+      tag: "3.0.0"
   - name: ops-git
     type: git
     source:
@@ -25,18 +30,15 @@ jobs:
   - name: configure-repos
     serial: true
     plan:
+      - get: ruby-image
       - get: every-day
         trigger: true
       - get: github-git
         trigger: true
       - task: configure-repos
+        image: ruby-image
         config:
           platform: linux
-          image_resource:
-            type: docker-image
-            source:
-              repository: ruby
-              tag: "3.0.0"
           inputs:
             - name: github-git
           params:
