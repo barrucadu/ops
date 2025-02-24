@@ -1,10 +1,5 @@
 x-octodns-task: &octodns-task
   platform: linux
-  image_resource:
-    type: docker-image
-    source:
-      repository: python
-      tag: "3.10"
   inputs:
     - name: dns-git
   params:
@@ -20,6 +15,11 @@ x-octodns-task: &octodns-task
         octodns-sync --config-file dns.yaml ${DOIT}
 
 resources:
+  - name: python-image
+    type: registry-image
+    source:
+      repository: mirror.gcr.io/python
+      tag: "3.10"
   - name: ops-git
     type: git
     source:
@@ -42,19 +42,23 @@ jobs:
   - name: octodns-plan
     serial: true
     plan:
+      - get: python-image
       - get: dns-git
         trigger: true
       - task: plan
+        image: python-image
         config:
           <<: *octodns-task
 
   - name: octodns-apply
     serial: true
     plan:
+      - get: python-image
       - get: dns-git
         passed:
           - octodns-plan
       - task: apply
+        image: python-image
         params:
           DOIT: "--doit"
         config:
