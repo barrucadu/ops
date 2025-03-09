@@ -73,6 +73,11 @@
   values:
     - ""
 
+"_discord.barrucadu.co.uk":
+  type: "TXT"
+  values:
+    - "dh=0842179cec81c2f7f761229e77653c4d47b3938c"
+
 "_dmarc":
   type: "TXT"
   values:
