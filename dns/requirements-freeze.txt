@@ -1,4 +1,4 @@
-attrs==25.2.0
+attrs==25.3.0
 boto3==1.37.9
 botocore==1.37.12
 coverage==7.6.12
