@@ -15,7 +15,7 @@ pprintpp==0.4.0
 py==1.11.0
 pycountry==24.6.1
 pycountry-convert==0.7.2
-pyparsing==3.2.1
+pyparsing==3.2.2
 pytest==8.3.5
 pytest-cov==6.0.0
 pytest-mock==3.14.0
