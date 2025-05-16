@@ -10,7 +10,7 @@ natsort==8.4.0
 octodns==1.11.0
 octodns-route53==1.0.1
 packaging==25.0
-pluggy==1.5.0
+pluggy==1.6.0
 pprintpp==0.4.0
 py==1.11.0
 pycountry==24.6.1
