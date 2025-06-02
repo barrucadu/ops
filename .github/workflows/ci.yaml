@@ -45,6 +45,6 @@ jobs:
           export AWS_SECRET_ACCESS_KEY=dummy
           octodns-validate --config-file dns.yaml
       - name: Check Configuration (terraform)
-        uses: dflook/terraform-validate@v1
+        uses: dflook/terraform-validate@v2
         with:
           path: aws
