@@ -1,6 +1,6 @@
 attrs==25.4.0
 boto3==1.40.62
-botocore==1.40.62
+botocore==1.40.63
 coverage==7.11.0
 dnspython==2.8.0
 fqdn==1.5.1
